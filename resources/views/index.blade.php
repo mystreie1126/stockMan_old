@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('content')
-
+<h1>hahaha</h1>
 <form action="/sales" method="POST">
 
 	<div class="input-field">
