@@ -2,12 +2,6 @@
 
 @section('content')
 
-
-@foreach($shops as $shop)
-
-
-
-@endforeach
 <form action="/sales" method="POST">
 
 	<div class="input-field">
