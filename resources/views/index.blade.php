@@ -5,8 +5,7 @@
 
 @foreach($shops as $shop)
 
-{{$shop->id_shop}}
-{{$shop->name}}<br>
+
 
 @endforeach
 <form action="/sales" method="POST">
