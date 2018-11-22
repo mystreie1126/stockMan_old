@@ -1,7 +1,6 @@
 @extends('template')
-
 @section('content')
-
+@include('_includes.top.header')
 <form action="/sales" method="POST">
 
 	<div class="input-field">

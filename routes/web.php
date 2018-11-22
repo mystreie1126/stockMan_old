@@ -11,8 +11,6 @@
 |
 */
 Route::get('/','HomeController@index');
-Route::get('/test','testController@test');
-Route::resource('/question','QuestionController');
-Route::post('/test','saveController@saving');
 Route::post('/sales','SalesController@showSelling');
 Route::post('/send','SendController@save');
+Route::get('/update-stock','SaveToStock@index')->name('up');

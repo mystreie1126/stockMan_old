@@ -44,7 +44,31 @@ class SendController extends Controller
                    ->orderBy('ps_product.reference')
 
 		      ->get();
-		// return $results;
+
+
+          foreach($results as $result){
+            DB::table('ps_stock_available')
+            ->where('id_product','=',$result->id_product)
+            ->where('id_shop','=',$result->id_shop)
+            ->increment('quantity',$result->send_quantity);
+          }
+
+      
+
     	return view('print',compact('results',$results));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

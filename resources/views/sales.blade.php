@@ -1,11 +1,12 @@
 @extends('template')
 
 @section('content')
+	@include('_includes.top.header')
 	<a href="/" class="btn waves-effect waves-light">Back to Home</a>
 	<p class="flow-text">Branch: <span class="cyan-text">{{$condition['shop_name']}}</span></p>
 		<p class="flow-text">Products Selling Record from: <span class="cyan-text">{{$condition['start_date']}}</span> to <span class="cyan-text">{{$condition['end_date']}}</span>
 		</p>
-		<p class="flow-text">{{count($sales_products)}} different products in total</p>
+		<p class="flow-text"> <span class="cyan-text">{{count($sales_products)}}</span> different products in total</p>
 		<form action="/send" method="POST">
 			{{csrf_field()}}
 			<ul class="collection">
