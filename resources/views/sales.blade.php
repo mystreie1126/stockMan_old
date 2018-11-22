@@ -16,8 +16,8 @@
 					<span style="font-weight: bolder;">{{$sales_product->product_name}}</span><br>
 					{{$sales_product->product_reference}}<br>
 					<p style="display:none" class="red-text">{{$sales_product->product_id}}</p>
-					<input type="show" name="id_product[]" value="{{$sales_product->product_id}}">
-					<input type="show" name="id_shop[]" value="{{$sales_product->id_shop}}">
+					<input type="hidden" name="id_product[]" value="{{$sales_product->product_id}}">
+					<input type="hidden" name="id_shop[]" value="{{$sales_product->id_shop}}">
 				 	<span>Sold:</span><span class="cyan-text">{{$sales_product->quantity}}</span>		
 					<div class="input-field secondary-content" style="margin-top: -20px;">
 						<input type="number" name="send_quantity[]" id="send-quantity">
