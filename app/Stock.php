@@ -8,4 +8,6 @@ class Stock extends Model
 {
     
     protected $table = 'ps_stock_available';
+    public $timestamps = false;
+
 }

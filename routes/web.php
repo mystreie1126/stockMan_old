@@ -13,5 +13,4 @@
 Route::get('/','HomeController@index');
 Route::post('/sales','SalesController@showSelling');
 Route::post('/send','SendController@save');
-Route::get('/update-stock','SaveToStock@index')->name('up');
-Route::get('/print','PrintController@showprint');
+Route::post('/update-stock','SendController@updateQty');
