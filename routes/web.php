@@ -14,3 +14,6 @@ Route::get('/','HomeController@index');
 Route::post('/sales','SalesController@showSelling');
 Route::post('/send','SendController@save');
 Route::post('/update-stock','SendController@updateQty');
+Route::get('/success',function(){
+	return view('success');
+});

@@ -69,7 +69,7 @@ class SendController extends Controller
 
     
 
-      return view('success');
+      return redirect('/success');
     }
 
 
