@@ -1,4 +1,4 @@
-@extends('template')
+	@extends('template')
 
 @section('content')
 	@include('_includes.top.header')
@@ -12,31 +12,31 @@
 			<ul class="collection">
 				@foreach($sales_products as $sales_product)
 				{{-- @foreach($results as $result)		 --}}
-				<li class="collection-item">	
+				<li class="collection-item">
 					<span style="font-weight: bolder;">{{$sales_product->product_name}}</span><br>
 					{{$sales_product->product_reference}}<br>
 					<p style="display:none" class="red-text">{{$sales_product->product_id}}</p>
 					<input type="hidden" name="id_product[]" value="{{$sales_product->product_id}}">
 
 					<input type="hidden" name="id_shop[]" value="{{$sales_product->id_shop}}">
-					
+
 					<input type="hidden" name="time[]" value="{{date('Y-m-d H:i:s')}}">
-				 	<span>Sold:</span><span class="cyan-text">{{$sales_product->quantity}}</span>		
+				 	<span>Sold:</span><span class="cyan-text">{{$sales_product->quantity}}</span>
 					<div class="input-field secondary-content" style="margin-top: -20px;">
 
 						<input type="number" name="qty[]" id="send-quantity">
 						<label for="send-quantity">Sending</label>
 					</div>
-						
-					
-				</li>	
+
+
+				</li>
 				@endforeach
 			</ul>
 		{{-- 	@foreach($sales_products as $product)
-				
-				
+
+
 			@endforeach --}}
 			<input type="submit" value="submit" class="btn waves-effect waves-light">
 		</form>
 
-@endsection 
+@endsection

@@ -10,30 +10,58 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet">
 
-		
+    <style media="screen">
+      .date-only,.time-only{
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .input-date{
+        width:40%;
+      }
+      #date{
+        width: 100%;
+      }
+    </style>
     </head>
     <body>
-            <div class="container">
+        <div class="container">
             @yield('content')
         </div>
-       
-        
+
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js
 "></script>
     <script type="text/javascript">
-        
+
     $(document).ready(function() {
       $("select").material_select();
     });
 
     $('.datepicker').pickadate({
         selectMonths:true,
-        selectYear:15,
+        selectYear:20,
         closeOnSelect:true
     });
 
-    
+    $(document).ready(function() {
+  $(".timepicker").pickatime({
+    default: "now",
+    twelvehour: false, // change to 12 hour AM/PM clock from 24 hour
+    donetext: "<i class='material-icons lime-text'>send</i>",
+    autoclose: false,
+    vibrate: true,
+    darktheme:true
+  });
+  // For adding seconds (00)
+  $(".timepicker").on("change", function() {
+    var receivedVal = $(this).val();
+    var iam = $(this).attr('id');
+    // var check_time = $(this).val(receivedVal + ":00");
+  });
+});
+
     </script>
     </body>
 </html>

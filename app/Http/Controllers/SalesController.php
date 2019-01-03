@@ -8,8 +8,12 @@ use DB;
 class SalesController extends Controller
 {
      public function showSelling(Request $request){
-    	$date_from = date('Y-m-d',strtotime($request->dateStart));
-    	$date_to = date('Y-m-d',strtotime($request->dateEnd));
+
+
+
+        $date_from = date('Y-m-d',strtotime($request->dateStart)).' '.$request->timeStart;
+        $date_to   = date('Y-m-d',strtotime($request->dateEnd)).' '.$request->timeEnd;
+
     	$shop_id = $request->shop_id;
     	$shop_name = Shop::where('id_shop',$shop_id)->pluck('name')[0];
     	$condition = [
@@ -20,7 +24,7 @@ class SalesController extends Controller
     	];
 
 
-    	
+
     	$sales_products = DB::table('ps_order_detail as X')
 		       ->select('X.id_order','X.id_shop','X.product_id','X.product_reference',
 		       	'X.product_name',DB::raw('sum(X.product_quantity) as quantity','X.product_id'),'ps_orders.date_add as Date')
@@ -41,6 +45,6 @@ class SalesController extends Controller
 
 
 	    //return $sales_products;
-    	return view('sales',compact('condition','sales_products'));
+    	return view('sales',compact('sales_products','condition'));
     }
 }
