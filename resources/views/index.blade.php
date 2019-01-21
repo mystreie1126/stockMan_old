@@ -2,7 +2,6 @@
 @section('content')
 @include('_includes.top.header')
 <form action="{{route('sales')}}" method="POST">
-	<h1 class="cyan-text">hey what's up</h1>
 	<div class="input-field">
 		<select name="shop_id">
 			<option value="" disabled selected>Choose the Branch</option>

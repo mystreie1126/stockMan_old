@@ -9,6 +9,25 @@
 		<p class="flow-text"> <span class="cyan-text">{{count($sales_products)}}</span> different products in total</p>
 		<form action="/send" method="POST">
 			{{csrf_field()}}
+			@if($collect->count() == 0)
+				<p class='flow-text indigo-text'>No Online Order Collection for this shop</p>
+			@else
+						<p class='indigo-text flow-text'>Replenishing through PickUp in Store:</p>
+					<ul class="collection">
+						@foreach ($collect as $c)
+								<li class="collection-item">
+									<span class='cyan-text'>{{$c->product_reference}}</span>
+									<span>{{$c->product_name }}</span>
+									<div class="secondary-content">
+										<span class='cyan-text'>Collected quantity:</span>
+										<span class='indigo-text' style="font-weight: bolder;">{{$c->qty}}</span>
+									</div>
+								</li>
+						@endforeach
+				</ul>
+			@endif
+
+				<p class='orange-text flow-text'>Replenishing through General Sale:</p>
 			<ul class="collection">
 				@foreach($sales_products as $sales_product)
 				{{-- @foreach($results as $result)		 --}}

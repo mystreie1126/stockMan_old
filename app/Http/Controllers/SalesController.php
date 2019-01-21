@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Shop;
+use App\Order_pick_up;
 use DB;
 class SalesController extends Controller
 {
@@ -11,8 +12,8 @@ class SalesController extends Controller
 
 
 
-        $date_from = date('Y-m-d',strtotime($request->dateStart)).' '.$request->timeStart;
-        $date_to   = date('Y-m-d',strtotime($request->dateEnd)).' '.$request->timeEnd;
+      $date_from = date('Y-m-d',strtotime($request->dateStart)).' '.$request->timeStart;
+      $date_to   = date('Y-m-d',strtotime($request->dateEnd)).' '.$request->timeEnd;
 
     	$shop_id = $request->shop_id;
     	$shop_name = Shop::where('id_shop',$shop_id)->pluck('name')[0];
@@ -37,14 +38,19 @@ class SalesController extends Controller
 		       ->orderBy('X.product_reference','desc')
 		       ->get();
 
-		// $sales_products = DB::table('ps_orders as X')
-		// 	   ->select('X.id_order','X.date_add')
-		// 	   ->where('X.date_add','>=',$date_from)
-		// 	   ->get();
 
+        $collect = DB::connection('mysql2')
+            ->table('ps_order_detail as b')
+            ->select('b.id_order','b.product_id','b.product_name','b.product_reference',
+                  DB::raw('sum(b.product_quantity) as qty'))
+             ->groupBy('b.product_id')
+            ->join('rd_pickup_orders as a','a.ie_order_id','b.id_order')
+            ->where('a.pos_shop_id',$shop_id)
+   		       ->where('a.created_at','>=',$date_from)
+   		       ->where('a.created_at','<=',$date_to)
+            ->get();
 
-
-	    //return $sales_products;
-    	return view('sales',compact('sales_products','condition'));
+      //return $collect;
+    	return view('sales',compact('sales_products','condition','collect'));
     }
 }
