@@ -1,13 +1,14 @@
-	@extends('template')
+@extends('template')
 
 @section('content')
-	@include('_includes.top.header')
-	<a href="/" class="btn waves-effect waves-light">Back to Home</a>
+@include('_includes.sidenav')
+<div class="col s8 left">
+	{{-- <a href="/" class="btn waves-effect waves-light">Back to Home</a> --}}
 	<p class="flow-text">Branch: <span class="cyan-text">{{$condition['shop_name']}}</span></p>
 		<p class="flow-text">Products Selling Record from: <span class="cyan-text">{{$condition['start_date']}}</span> to <span class="cyan-text">{{$condition['end_date']}}</span>
 		</p>
 		<p class="flow-text"> <span class="cyan-text">{{count($sales_products)}}</span> different products in total</p>
-		<form action="/send" method="POST">
+		<form action="{{route('sending')}}" method="POST">
 			{{csrf_field()}}
 			@if($collect->count() == 0)
 				<p class='flow-text indigo-text'>No Online Order Collection for this shop</p>
@@ -57,5 +58,5 @@
 			@endforeach --}}
 			<input type="submit" value="submit" class="btn waves-effect waves-light">
 		</form>
-
+</div>
 @endsection

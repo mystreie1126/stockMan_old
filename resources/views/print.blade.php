@@ -1,11 +1,11 @@
 @extends('template')
 
 @section('content')
-<div class="container">
+@include('_includes.sidenav')
 		{{-- @include('_includes.top.header') --}}
-			
-		
-			<div class="container">
+
+
+			<div class="col s8">
 				<h6>To {{$results[0]->shopname}} Branch, Sending at {{date(date("Y-m-d",time()))}}</h6>
 				<table>
 					<thead>
@@ -14,10 +14,10 @@
 						<th>Send Quantity</th>
 					</thead>
 					<tbody>
-						<form action="/update-stock" method="post">
+						<form action="{{route('update-stock')}}" method="post">
 							{{csrf_field()}}
 							@foreach($results as $result)
-								<tr>								
+								<tr>
 									<th>{{$result->reference}}</th>
 									<th>{{$result->name}}</th>
 									<th>{{$result->send_quantity}}</th>
@@ -32,10 +32,10 @@
 				</table>
            </div>
 
-      
 
 
-       </div>
+
+
 
 
 @endsection
