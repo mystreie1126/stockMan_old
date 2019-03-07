@@ -22,14 +22,32 @@
       #date{
         width: 100%;
       }
+
+      .fixed-action-btn{
+        bottom: auto;
+        top:12px;
+      }
     </style>
     </head>
     <body>
-        <div class="row">
-            @yield('content')
+
+        {{-- <div class="row">
+            <div class="col s12">
+                @yield('content')
+            </div>
+
+
         </div>
 
-        
+        <div class="test">
+          @yield('shit')
+        </div> --}}
+
+      @yield('content')
+
+      @stack('shit')
+
+      @stack('fuck')
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js
 "></script>

@@ -1,7 +1,7 @@
 
-<div class="col s3">
 
-<ul id="slide-out" class="side-nav fixed">
+
+<ul class="side-nav fixed col s3">
      <li>
        <div class="user-view">
          <a href="{{route('index')}}">
@@ -16,7 +16,7 @@
           <div class="collapsible-body">
             <ul>
               <li><a href="{{route('replishment')}}"><i class="material-icons">airport_shuttle</i>Replishment</a></li>
-              <li><a href=""><i class="material-icons">flight_land</i>Stock-in date</a></li>
+              <li><a href="{{route('stockin')}}"><i class="material-icons">flight_land</i>Stock-in date</a></li>
               <li><a href=""><i class="material-icons">euro_symbol</i>Stock-out details</a></li>
               <li><a href=""><i class="material-icons">event_available</i>Current Stock</a></li>
             </ul>
@@ -30,4 +30,3 @@
         <li><a class="subheader">Something more</a></li>
         <li><a class="waves-effect" href="#!">Still in process....</a></li>
     </ul>
-</div>

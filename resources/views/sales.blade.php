@@ -1,8 +1,8 @@
 @extends('template')
 
 @section('content')
-@include('_includes.sidenav')
-<div class="col s8 left">
+
+
 	{{-- <a href="/" class="btn waves-effect waves-light">Back to Home</a> --}}
 	<p class="flow-text">Branch: <span class="cyan-text">{{$condition['shop_name']}}</span></p>
 		<p class="flow-text">Products Selling Record from: <span class="cyan-text">{{$condition['start_date']}}</span> to <span class="cyan-text">{{$condition['end_date']}}</span>
@@ -58,5 +58,5 @@
 			@endforeach --}}
 			<input type="submit" value="submit" class="btn waves-effect waves-light">
 		</form>
-</div>
+
 @endsection

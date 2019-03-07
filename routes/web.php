@@ -20,5 +20,4 @@ Route::get('/success',function(){
 	return view('success');
 });
 
-
-Route::get('/stock','stockController@index')->name('stock');
+Route::get('/stockin','stockController@index')->name('stockin');

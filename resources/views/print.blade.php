@@ -1,11 +1,10 @@
 @extends('template')
 
 @section('content')
-@include('_includes.sidenav')
+
 		{{-- @include('_includes.top.header') --}}
 
 
-			<div class="col s8">
 				<h6>To {{$results[0]->shopname}} Branch, Sending at {{date(date("Y-m-d",time()))}}</h6>
 				<table>
 					<thead>
@@ -30,7 +29,7 @@
 						</form>
 					</tbody>
 				</table>
-           </div>
+
 
 
 

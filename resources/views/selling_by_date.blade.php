@@ -1,7 +1,6 @@
 @extends('template')
 @section('content')
-@include('_includes.sidenav')
-<div class="col s8 left">
+
 
 <form action="{{route('sales')}}" method="POST">
 	<div class="input-field">
@@ -40,5 +39,5 @@
 	<input type="submit" value="submit" class="btn waves-effect waves-light">
 	{{csrf_field()}}
 </form>
-</div>
+
 @endsection
