@@ -1,20 +1,43 @@
 @extends('template')
-
 @section('content')
 
 
-  <p class="flow-text">Wellcome to StockManager and Please choose the left side bar to start. </p>
+<form action="{{route('sales')}}" method="POST">
+	<div class="input-field">
+		<select name="shop_id">
+			<option value="" disabled selected>Choose the Branch</option>
+			@foreach($shops as $shop)
+				<option value="{{$shop->id_shop}}">{{$shop->name}}</option>
+			@endforeach
+		</select>
+	</div>
 
+<div class="date-only">
+	<div class="input-field input-date">
+		<input type="text" class="datepicker" id="date" name="dateStart">
+		<label for="date" class="cyan-text">Choose the start date:</label>
+	</div>
+
+	<div class="input-field input-date">
+		<input type="text" class="datepicker" id="date" name="dateEnd">
+		<label for="date" class="cyan-text">Choose the end date</label>
+	</div>
+</div>
+
+<div class="time-only">
+	<div class="input-field input-date">
+		<input type="text" class="timepicker" id="time" name="timeStart">
+		<label for="time" class="indigo-text">Choose the start time:</label>
+	</div>
+
+	<div class="input-field input-date">
+		<input type="text" class="timepicker" id="time" name="timeEnd">
+		<label for="time" class="indigo-text">Choose the end time</label>
+	</div>
+</div>
+
+	<input type="submit" value="submit" class="btn waves-effect waves-light">
+	{{csrf_field()}}
+</form>
 
 @endsection
-
-@push('shit')
-
-  <h2 class="red-text">looool</h2>
-@endpush
-
-
-@push('fuck')
-
-  <h2> oh yeah</h2>
-@endpush

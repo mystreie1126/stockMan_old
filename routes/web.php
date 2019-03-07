@@ -10,9 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/','HomeController@index')->name('index');
+//oute::get('/','HomeController@index')->name('index');
 
-Route::get('/replishment','HomeController@replishment')->name('replishment');
+Route::get('/','HomeController@replishment')->name('replishment');
 Route::post('/sales','SalesController@showSelling')->name('sales');
 Route::post('/send','SendController@save')->name('sending');
 Route::post('/update-stock','SendController@updateQty')->name('update-stock');
